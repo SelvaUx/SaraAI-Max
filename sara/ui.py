@@ -68,7 +68,7 @@ def _animate_typing(text: str, style: str = "bold cyan", delay: float = 0.008):
 
 def _animate_banner():
     """Animate the banner with a line-by-line reveal and gradient colors."""
-    lines = BANNER.strip().split("\n")
+    lines = BANNER.strip().splitlines()
     console.print()
 
     for i, line in enumerate(lines):

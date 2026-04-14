@@ -20,20 +20,15 @@ setup(
     install_requires=[
         "requests>=2.28.0",
         "rich>=13.0.0",
+        "psutil>=5.9.0",
+        "pyautogui>=0.9.54",
+        "Pillow>=9.0.0",
     ],
     extras_require={
         "voice": [
             "pyttsx3>=2.90",
             "SpeechRecognition>=3.10.0",
             "pyaudio>=0.2.13",
-        ],
-        "full": [
-            "pyttsx3>=2.90",
-            "SpeechRecognition>=3.10.0",
-            "pyaudio>=0.2.13",
-            "psutil>=5.9.0",
-            "pyautogui>=0.9.54",
-            "Pillow>=9.0.0",
         ],
     },
     entry_points={

@@ -139,7 +139,7 @@ TOOL_DEFINITIONS = [
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "expression": {"type": "string", "description": "Math expression e.g. '2**10 + sqrt(144)'."},
+                    "expression": {"type": "string", "description": "Math expression e.g. '2**10 + sqrt(144)'. STRICT RULE: use ** for exponentiation, absolutely never use ^."},
                 },
                 "required": ["expression"],
             },
@@ -380,7 +380,7 @@ def open_app(name: str) -> str:
         return f"Error launching '{name}': {e}"
 
 
-def get_sysinfo() -> str:
+def get_sysinfo(**kwargs) -> str:
     try:
         import shutil
         info = {
@@ -409,8 +409,11 @@ def get_sysinfo() -> str:
         return f"Error getting system info: {e}"
 
 
-def calculate(expression: str) -> str:
+def calculate(expression: str, **kwargs) -> str:
     try:
+        # Replace hallucinated caret exponentiation
+        expression = expression.replace("^", "**")
+        
         # Safe eval with math functions
         safe_env = {
             "__builtins__": {},
@@ -429,7 +432,7 @@ def calculate(expression: str) -> str:
         return f"Calculation error: {e}"
 
 
-def take_screenshot(path: str = None) -> str:
+def take_screenshot(path: str = None, **kwargs) -> str:
     try:
         import pyautogui
         if path is None:
@@ -446,7 +449,7 @@ def take_screenshot(path: str = None) -> str:
         return f"Screenshot error: {e}"
 
 
-def get_datetime() -> str:
+def get_datetime(**kwargs) -> str:
     now = datetime.datetime.now()
     return (
         f"Date: {now.strftime('%A, %B %d, %Y')}\n"
