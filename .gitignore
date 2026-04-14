@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+sara_ai.egg-info/
+sara_ai_max.egg-info/
+sara_ai_max.egg-info
+.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env
+
+# OS specific
+.DS_Store
+Thumbs.db
